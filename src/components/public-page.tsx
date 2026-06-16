@@ -236,11 +236,11 @@ function SiteChrome({ content, activePath, children }: { content: SiteContent; a
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
   
-  const cursorX = useSpring(mouseX, { damping: 20, stiffness: 220, mass: 0.4 });
-  const cursorY = useSpring(mouseY, { damping: 20, stiffness: 220, mass: 0.4 });
+  const cursorX = useSpring(mouseX, { damping: 26, stiffness: 180, mass: 0.3 });
+  const cursorY = useSpring(mouseY, { damping: 26, stiffness: 180, mass: 0.3 });
 
-  const followerX = useSpring(mouseX, { damping: 25, stiffness: 140, mass: 0.8 });
-  const followerY = useSpring(mouseY, { damping: 25, stiffness: 140, mass: 0.8 });
+  const followerX = useSpring(mouseX, { damping: 32, stiffness: 90, mass: 0.9 });
+  const followerY = useSpring(mouseY, { damping: 32, stiffness: 90, mass: 0.9 });
 
   useEffect(() => {
     const checkMobile = () => {
@@ -434,7 +434,7 @@ function HomeView({ content, language }: { content: SiteContent; language: Local
           className="absolute inset-0 z-0"
           initial={{ scale: 1.15 }}
           animate={{ scale: 1.02 }}
-          transition={{ duration: 12, ease: "easeOut" }}
+          transition={{ duration: 18, ease: "easeOut" }}
           style={{ y: y1 }}
         >
           <Image src={content.home.hero.image.src} alt={text(content.home.hero.image.alt, language)} fill className="object-cover opacity-50" priority sizes="100vw" />
@@ -446,8 +446,8 @@ function HomeView({ content, language }: { content: SiteContent; language: Local
             <motion.span 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="text-[var(--gold)] text-sm tracking-[0.3em] uppercase mb-6 font-bold"
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-[var(--gold)] text-xs tracking-[0.35em] uppercase mb-6 font-semibold font-serif-luxury italic"
             >
               {language === "ar" ? "كريبيلو أتيليه" : "Crepello Atelier"}
             </motion.span>
