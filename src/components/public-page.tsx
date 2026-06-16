@@ -282,7 +282,7 @@ function SiteChrome({ content, activePath, children }: { content: SiteContent; a
 
   useEffect(() => {
     let lastY = 0;
-    return scrollY.onChange((latest) => {
+    return scrollY.on("change", (latest) => {
       setIsScrolled(latest > 50);
       if (latest > lastY && latest > 150) {
         setHiddenHeader(true);
