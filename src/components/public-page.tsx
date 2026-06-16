@@ -170,7 +170,7 @@ function RevealHeading({ text, className, delay = 0 }: { text: string; className
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-20px" }}
     >
       {words.map((word, i) => (
         <span key={i} className="inline-block overflow-hidden">
@@ -339,7 +339,8 @@ function SiteChrome({ content, activePath, children }: { content: SiteContent; a
       <header className={cn(
         "site-header",
         isScrolled ? "scrolled" : "",
-        hiddenHeader ? "hidden-header" : ""
+        hiddenHeader ? "hidden-header" : "",
+        mobileOpen ? "mobile-open" : ""
       )}>
         <div className="site-header-inner">
           <Magnetic>

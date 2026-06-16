@@ -23,7 +23,7 @@ const officialImage = {
   americano:
     "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/46421929-0055-48db-8e78-23df6f700c09/Americano.jpg",
   latte:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/200da6a6-d84d-42be-98f6-d54f7a123eba/Caf%C3%A9+latte.jpg",
+    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/200da6a6-d84d-42be-98f6-d54f7a123eba/Caf%C3%A9%20latte.jpg",
   frappe:
     "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/34c471b5-dd40-474a-b4b9-337558f9c3fd/Caramel+frappe.jpg",
   mojito:

@@ -224,6 +224,13 @@ button, input, textarea, select {
   transform: translateY(-100%);
 }
 
+.site-header.mobile-open {
+  background: rgba(7, 6, 5, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.08);
+}
+
 .site-header-inner {
   display: flex;
   height: 90px;
@@ -513,6 +520,9 @@ button, input, textarea, select {
 
 /* Mobile Overrides */
 @media (max-width: 1024px) {
+  .ambient-glow {
+    display: none !important;
+  }
   .site-header-inner {
     padding: 0 24px;
     height: 80px;
