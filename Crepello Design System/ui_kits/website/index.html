@@ -1,0 +1,165 @@
+<!-- @dsCard group="Website" viewport="1280x860" name="Homepage — Atelier" subtitle="Full homepage redesign · EN/AR toggle, scroll reveal" -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crepello — Atelier</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script src="copy.js"></script>
+  <noscript>
+    <style>[data-reveal] { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+  <style>
+    html, body { background: var(--bg-base); }
+    /* Order toast */
+    .crp-toast {
+      position: fixed; inset-block-end: 24px; inset-inline-start: 50%; transform: translateX(-50%) translateY(140%);
+      z-index: 80; background: var(--surface-card); border: 1px solid var(--border-strong);
+      border-radius: var(--radius-pill); padding: 12px 22px; box-shadow: var(--shadow-lg);
+      font-family: var(--font-body); font-size: var(--text-sm); color: var(--text-strong);
+      display: flex; align-items: center; gap: 12px; transition: transform var(--dur-med) var(--ease-out);
+    }
+    [dir="rtl"] .crp-toast { transform: translateX(50%) translateY(140%); }
+    .crp-toast.show { transform: translateX(-50%) translateY(0); }
+    [dir="rtl"] .crp-toast.show { transform: translateX(50%) translateY(0); }
+    .crp-toast .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="sections.jsx"></script>
+  <script type="text/babel">
+    const { Button } = window.CrepelloDesignSystem_e5a7ae;
+    const { Hero, MenuGrid, Signature, Franchise, Footer } = window;
+    const COPY = window.CREPELLO_COPY;
+
+    /* ---- Kit navigation (mobile-collapsing, translated, RTL-aware) ---- */
+    function KitNav({ t, lang, onToggleLang, onOrder }) {
+      const [open, setOpen] = React.useState(false);
+      const links = [
+        { label: t.nav.menu, href: '#menu' },
+        { label: t.nav.atelier, href: '#atelier' },
+        { label: t.nav.franchise, href: '#franchise' },
+      ];
+      return (
+        <header style={{
+          position: 'sticky', top: 0, zIndex: 60, background: 'var(--scrim)',
+          backdropFilter: 'blur(var(--blur-md))', WebkitBackdropFilter: 'blur(var(--blur-md))',
+          borderBottom: '1px solid var(--border-subtle)',
+        }}>
+          <nav style={{ maxWidth: 'var(--content-wide)', margin: '0 auto', padding: '0.85rem var(--gutter)', display: 'flex', alignItems: 'center', gap: 'var(--space-5)' }}>
+            <a href="#top" style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', fontWeight: 500, color: 'var(--text-strong)' }}>
+              Crepello<span style={{ color: 'var(--accent)' }}>.</span>
+            </a>
+
+            <ul className="crp-desktop-links" style={{ display: 'flex', gap: 'var(--space-6)', listStyle: 'none', margin: 0, padding: 0, marginInline: 'auto' }}>
+              {links.map((l) => (
+                <li key={l.href}><a href={l.href}
+                  style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--text-sm)', color: 'var(--text-muted)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-soft)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>{l.label}</a></li>
+              ))}
+            </ul>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginInlineStart: 'auto' }}>
+              <button onClick={onToggleLang} aria-label="Toggle language" style={{
+                fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: '.1em',
+                color: 'var(--text-muted)', background: 'transparent', border: '1px solid var(--border-default)',
+                borderRadius: 'var(--radius-pill)', padding: '0.4rem 0.7rem', cursor: 'pointer', minWidth: 38,
+              }}>{t.nav.lang}</button>
+              <span className="crp-desktop-order"><Button size="sm" onClick={onOrder}>{t.nav.order}</Button></span>
+              <button className="crp-burger" onClick={() => setOpen((o) => !o)} aria-label="Menu" style={{
+                display: 'none', flexDirection: 'column', gap: 4, background: 'transparent', border: 'none', cursor: 'pointer', padding: 6,
+              }}>
+                <span style={{ width: 20, height: 1.5, background: 'var(--text-strong)' }}></span>
+                <span style={{ width: 20, height: 1.5, background: 'var(--text-strong)' }}></span>
+              </button>
+            </div>
+          </nav>
+
+          {open && (
+            <div style={{ padding: '0 var(--gutter) var(--space-5)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)' }}>
+              {links.map((l) => (
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+                  style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--text-body)' }}>{l.label}</a>
+              ))}
+              <Button onClick={() => { setOpen(false); onOrder(); }}>{t.nav.order}</Button>
+            </div>
+          )}
+        </header>
+      );
+    }
+
+    function App() {
+      const [lang, setLang] = React.useState('EN');
+      const [toast, setToast] = React.useState(false);
+      const t = COPY[lang];
+
+      React.useEffect(() => {
+        document.documentElement.lang = lang === 'EN' ? 'en' : 'ar';
+        document.documentElement.dir = t.dir;
+      }, [lang]);
+
+      // Scroll reveal — once, respects reduced motion (CSS handles the latter).
+      // Robust: reveal anything already in view immediately, observe the rest,
+      // and a safety timer guarantees content shows even if IO never fires.
+      React.useEffect(() => {
+        const reveal = (el) => { el.setAttribute('data-revealed', ''); };
+        const all = () => document.querySelectorAll('[data-reveal]:not([data-revealed])');
+        const inView = (el) => {
+          const r = el.getBoundingClientRect();
+          return r.top < (window.innerHeight || 0) * 0.96 && r.bottom > 0;
+        };
+        // 1) immediate pass for elements already on screen
+        all().forEach((el) => { if (inView(el)) reveal(el); });
+        // 2) observer for the rest
+        let io = null;
+        if ('IntersectionObserver' in window) {
+          io = new IntersectionObserver((entries) => {
+            entries.forEach((en) => { if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); } });
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          all().forEach((el) => io.observe(el));
+        }
+        // 3) scroll fallback (covers environments where IO never fires)
+        const onScroll = () => { all().forEach((el) => { if (inView(el)) reveal(el); }); };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        // 4) safety net — never leave content hidden
+        const fb = setTimeout(() => all().forEach(reveal), 1200);
+        return () => { if (io) io.disconnect(); window.removeEventListener('scroll', onScroll); clearTimeout(fb); };
+      }, [lang]);
+
+      const order = () => { setToast(true); clearTimeout(window.__crpT); window.__crpT = setTimeout(() => setToast(false), 2600); };
+
+      return (
+        <>
+          <KitNav t={t} lang={lang} onToggleLang={() => setLang((l) => (l === 'EN' ? 'AR' : 'EN'))} onOrder={order} />
+          <main>
+            <Hero t={t.hero} />
+            <MenuGrid t={t.menu} />
+            <Signature rows={t.signature} />
+            <Franchise t={t.franchise} />
+          </main>
+          <Footer t={t.footer} />
+          <div className={'crp-toast' + (toast ? ' show' : '')}><span className="dot"></span>{lang === 'EN' ? 'Opening Talabat…' : '…يفتح طلبات'}</div>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+
+  <style>
+    /* Responsive nav collapse */
+    @media (max-width: 760px) {
+      .crp-desktop-links { display: none !important; }
+      .crp-desktop-order { display: none !important; }
+      .crp-burger { display: flex !important; }
+    }
+  </style>
+</body>
+</html>

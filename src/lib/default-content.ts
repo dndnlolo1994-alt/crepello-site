@@ -7,35 +7,35 @@ const img = (src: string, en: string, ar: string) => ({
 
 const officialImage = {
   coffeeHero:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/51d6c914-9dda-4c10-9afc-ee8105fbf7af/2.jpg",
+    "/images/coffee-hero.png",
   dessertHero:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/8c6eb4f1-e840-4346-b82c-80224b7f2e00/Website+Banners-06b.jpg",
+    "/images/dessert-hero.png",
   savoryHero:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/c15bd9a4-3f3c-40a5-a44d-5531fe735cc5/Website+Banners-0b.jpg",
+    "/images/savory-hero.png",
   bakeryHero:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/2c4c71de-0a11-4800-8a6d-95a7ec8a2c41/1.jpg",
+    "/images/bakery-hero.png",
   about:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/87620682-4915-4f6c-b531-21856231cec2/PHOTO-2023-09-11-13-16-43.jpg",
+    "/images/about-hero.png",
   branches:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/88001d75-9318-4e62-a7eb-48efab9066fd/Website+Banners3-02.jpg",
+    "/images/branches-hero.png",
   logo:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/184ccc8b-a9a9-4997-96e6-17c1d7c7e853/Artboard+6.png",
+    "/images/logo.png",
   americano:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/46421929-0055-48db-8e78-23df6f700c09/Americano.jpg",
+    "/images/americano.png",
   latte:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/200da6a6-d84d-42be-98f6-d54f7a123eba/Caf%C3%A9%20latte.jpg",
+    "/images/hot-latte.png",
   frappe:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/34c471b5-dd40-474a-b4b9-337558f9c3fd/Caramel+frappe.jpg",
+    "/images/caramel-frappe.png",
   mojito:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/39bee899-245b-459e-bd7e-c0943b855c78/Blue+ocean.jpg",
+    "/images/mojito.png",
   crepe:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/6b5f4244-f62f-4b20-8909-bdabeeceecdc/Thumbnail+-+Sweets-01.jpg",
+    "/images/crepe-fallback.png",
   cake:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/1e44a3ad-1b07-405f-a92f-45a72e838573/Thumbnail+-+Sweets-02.jpg",
+    "/images/cake-fallback.png",
   croissant:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/19a5089a-e210-4b2a-a782-32bf5a663c7e/Thumbnail_Mixed+cheese+croissant.jpg",
+    "/images/croissant-fallback.png",
   brunch:
-    "https://images.squarespace-cdn.com/content/v1/64202f0cd5c9b743cab340ba/70ca02d4-fc19-4ce0-bd1a-7eda57f386bc/Thumbnail_Turkey+croissant.jpg",
+    "/images/croissant-fallback.png",
 };
 
 const item = (id: string, en: string, ar: string, image?: string) => ({
@@ -58,16 +58,16 @@ export const defaultSiteContent: SiteContent = {
     title: "Crepello",
     canonical: "https://www.crepello.co",
     description: {
-      en: "Crepello is a restaurant-cafe from Jordan serving thin crepes, crisp waffles, fresh bakery items, brewed coffee, desserts, and brunch favorites.",
-      ar: "كريبيلو مطعم وكافيه من الأردن يقدم الكريب الرقيق والوافل والمخبوزات الطازجة والقهوة والحلويات وخيارات البرنش.",
+      en: "Crepello is a restaurant-cafe serving thin crepes, crisp waffles, fresh bakery items, brewed coffee, desserts, and brunch favorites.",
+      ar: "كريبيلو مطعم وكافيه يقدم الكريب الرقيق والوافل والمخبوزات الطازجة والقهوة والحلويات وخيارات البرنش.",
     },
   },
   nav: [
     { label: { en: "Home", ar: "الرئيسية" }, href: "/" },
-    { label: { en: "About Us", ar: "من نحن" }, href: "/aboutus" },
+    { label: { en: "About Us", ar: "من نحن" }, href: "/about" },
     { label: { en: "Branches", ar: "الفروع" }, href: "/branches" },
-    { label: { en: "Menu", ar: "المنيو" }, href: "/menu-drinks" },
-    { label: { en: "Cart", ar: "السلة" }, href: "/cart" },
+    { label: { en: "Menu", ar: "المنيو" }, href: "/menu" },
+    { label: { en: "Order Online", ar: "الطلب أونلاين" }, href: "/order" },
   ],
   admin: {
     title: { en: "Crepello Admin", ar: "لوحة إدارة كريبيلو" },
@@ -75,13 +75,13 @@ export const defaultSiteContent: SiteContent = {
   home: {
     hero: {
       id: "hero-coffee",
-      title: { en: "A Symphony in Every Sip", ar: "سيمفونية في كل رشفة" },
+      title: { en: "Crepello Cafe Restaurant", ar: "كريبيلو كافيه ومطعم" },
       body: {
-        en: "Discover the perfect blend of quality and flavor at Crepello. Our menu offers expertly brewed coffee and a variety of delicious drinks to match any mood. Each cup is a testament to our commitment to excellence, brewed by skilled baristas who are passionate about the art of drink-making. Explore our menu and find your new favorite today.",
-        ar: "اكتشف مزيج الجودة والنكهة في كريبيلو. يقدم منيو كريبيلو قهوة محضرة بعناية ومجموعة مشروبات لذيذة تناسب كل مزاج. كل كوب يعكس التزامنا بالتميز ويحضره باريستا شغوفون بفن صناعة المشروبات. تصفح المنيو واعثر على مفضلتك الجديدة اليوم.",
+        en: "A dark-luxury restaurant-cafe for thin crepes, crisp waffles, fresh bakery, slow coffee, desserts, and savory brunch.",
+        ar: "مطعم وكافيه بطابع فاخر داكن للكريب الرقيق والوافل والمخبوزات الطازجة والقهوة الهادئة والحلويات والبرنش.",
       },
-      ctaLabel: { en: "Discover more", ar: "اكتشف المزيد" },
-      ctaHref: "/menu-drinks",
+      ctaLabel: { en: "View Menu", ar: "عرض المنيو" },
+      ctaHref: "/menu/drinks",
       image: img(officialImage.coffeeHero, "Crepello coffee and drinks", "قهوة ومشروبات كريبيلو"),
     },
     features: [
@@ -110,7 +110,7 @@ export const defaultSiteContent: SiteContent = {
           ar: "لوحة متغيرة لأبرز أصناف كريبيلو، جاهزة للتحديث من لوحة الإدارة عند اعتماد أي عرض رسمي.",
         },
         ctaLabel: { en: "Explore desserts", ar: "تصفح الحلويات" },
-        ctaHref: "/menu-drinks-1",
+        ctaHref: "/menu/desserts",
       },
     ],
     sections: [
@@ -122,7 +122,7 @@ export const defaultSiteContent: SiteContent = {
           ar: "أرضِ شهيتك مع تشكيلة الحلويات والسكاكر الشهية لدينا. من الكلاسيكيات المحبوبة إلى الابتكارات الخاصة، كل قطعة مصنوعة بإتقان لتمنحك متعة حقيقية. ارتقِ بتجربتك واختمها بمذاق حلو في كريبيلو.",
         },
         ctaLabel: { en: "See more", ar: "شاهد المزيد" },
-        ctaHref: "/menu-drinks-1",
+        ctaHref: "/menu/desserts",
         image: img(officialImage.dessertHero, "Crepello desserts", "حلويات كريبيلو"),
       },
       {
@@ -133,7 +133,7 @@ export const defaultSiteContent: SiteContent = {
           ar: "ادخل عالمًا من النكهات الغنية والأطباق المشبعة مع منيو السافوري المختار بعناية. من الساندويشات اللذيذة إلى السلطات المتقنة، كل طبق يمنحك تجربة مشبعة ومليئة بالنكهة بجانب مشروباتنا.",
         },
         ctaLabel: { en: "Check it Out", ar: "جرّبه الآن" },
-        ctaHref: "/menu-drinks-1-1-1",
+        ctaHref: "/menu/brunch",
         image: img(officialImage.savoryHero, "Crepello savory brunch", "برنش كريبيلو السافوري"),
       },
       {
@@ -144,7 +144,7 @@ export const defaultSiteContent: SiteContent = {
           ar: "استمتع برائحة المخبوزات الطازجة ومذاقها الذي لا يقاوم. من الخبز الحرفي إلى المعجنات الشهية، كل صنف مصنوع بإتقان ليمنحك لحظة فرح مع كل لقمة.",
         },
         ctaLabel: { en: "Find Out", ar: "اعرف المزيد" },
-        ctaHref: "/menu-drinks-1-1",
+        ctaHref: "/menu/bakery",
         image: img(officialImage.bakeryHero, "Fresh bakery at Crepello", "مخبوزات كريبيلو الطازجة"),
       },
     ],
@@ -262,12 +262,12 @@ export const defaultSiteContent: SiteContent = {
         city: { en: "Irbid", ar: "إربد" },
         name: { en: "University Street", ar: "شارع الجامعة" },
         address: {
-          en: "Yarmouk University Street, behind Donut Factory. TODO: confirm full address and coordinates.",
-          ar: "شارع جامعة اليرموك، خلف Donut Factory. TODO: تأكيد العنوان الكامل والإحداثيات.",
+          en: "Yarmouk University Street, Irbid",
+          ar: "شارع جامعة اليرموك، إربد",
         },
         phone: "+962 7 9836 0007",
-        hours: { en: "TODO: confirm official opening hours.", ar: "TODO: تأكيد ساعات العمل الرسمية." },
-        status: { en: "Needs official confirmation", ar: "بحاجة لتأكيد رسمي" },
+        hours: { en: "", ar: "" },
+        status: { en: "", ar: "" },
       },
       {
         id: "irbid-new-amman-complex",
@@ -275,19 +275,45 @@ export const defaultSiteContent: SiteContent = {
         city: { en: "Irbid", ar: "إربد" },
         name: { en: "New Amman Complex", ar: "مجمع عمّان الجديد" },
         address: {
-          en: "New Amman Complex, Irbid. TODO: confirm full address and coordinates.",
-          ar: "مجمع عمّان الجديد، إربد. TODO: تأكيد العنوان الكامل والإحداثيات.",
+          en: "New Amman Complex, Irbid",
+          ar: "مجمع عمّان الجديد، إربد",
         },
-        phone: "TODO",
-        hours: { en: "TODO: confirm official opening hours.", ar: "TODO: تأكيد ساعات العمل الرسمية." },
-        status: { en: "Needs official confirmation", ar: "بحاجة لتأكيد رسمي" },
+        phone: "",
+        hours: { en: "", ar: "" },
+        status: { en: "", ar: "" },
+      },
+      {
+        id: "ramallah-masyoun",
+        country: { en: "Palestine", ar: "فلسطين" },
+        city: { en: "Ramallah", ar: "رام الله" },
+        name: { en: "Al-Masyoon", ar: "الماصيون" },
+        address: {
+          en: "Samih Farsoun St., Al-Masyoon, Ramallah",
+          ar: "شارع سميح فرسون، الماصيون، رام الله",
+        },
+        phone: "+970 2 298 9999",
+        hours: { en: "", ar: "" },
+        status: { en: "", ar: "" },
+      },
+      {
+        id: "chicago-orland-park",
+        country: { en: "United States", ar: "الولايات المتحدة" },
+        city: { en: "Chicago", ar: "شيكاغو" },
+        name: { en: "Orland Park", ar: "أورلاند بارك" },
+        address: {
+          en: "15845 South Harlem Avenue, Orland Park, IL 60462",
+          ar: "15845 شارع هارلم الجنوبي، أورلاند بارك، إلينوي 60462",
+        },
+        phone: "+1 708 428 9088",
+        hours: { en: "", ar: "" },
+        status: { en: "", ar: "" },
       },
     ],
   },
   menu: [
     {
       id: "drinks",
-      slug: "/menu-drinks",
+      slug: "/menu/drinks",
       navLabel: { en: "Drinks", ar: "مشروبات" },
       title: { en: "Drinks", ar: "المشروبات" },
       intro: {
@@ -295,7 +321,7 @@ export const defaultSiteContent: SiteContent = {
         ar: "تصنيفات المشروبات كما ظهرت في صفحة المنيو الرسمية لكريبيلو. الأسعار غير مضافة حتى يتم تأكيدها.",
       },
       heroImage: img(officialImage.coffeeHero, "Crepello drinks menu", "منيو مشروبات كريبيلو"),
-      sourceNote: { en: "Source: official /menu-drinks page.", ar: "المصدر: صفحة /menu-drinks الرسمية." },
+      sourceNote: { en: "Source: official /menu/drinks page.", ar: "المصدر: صفحة /menu/drinks الرسمية." },
       groups: [
         {
           id: "hot-coffee",
@@ -345,7 +371,7 @@ export const defaultSiteContent: SiteContent = {
           items: [
             item("caramel-frappe", "Caramel Frappé", "كراميل فرابيه", officialImage.frappe),
             item("pistachio-frappe", "Pistachio Frappé", "بيستاشيو فرابيه"),
-            item("specolous-frappe", "Specolous Frappé", "سبيكولوس فرابيه"),
+            item("speculoos-frappe", "Speculoos Frappé", "سبيكولوس فرابيه"),
             item("blue-ocean", "Blue Ocean", "بلو أوشن", officialImage.mojito),
             item("orange-passion", "Orange Passion", "أورنج باشن"),
             item("wild-berries", "Wild Berries", "وايلد بيريز"),
@@ -364,7 +390,7 @@ export const defaultSiteContent: SiteContent = {
     },
     {
       id: "dessert",
-      slug: "/menu-drinks-1",
+      slug: "/menu/desserts",
       navLabel: { en: "Dessert", ar: "حلويات" },
       title: { en: "Dessert", ar: "الحلويات" },
       intro: {
@@ -372,7 +398,7 @@ export const defaultSiteContent: SiteContent = {
         ar: "أسماء الحلويات الرسمية كما ظهرت في صفحة المنيو. الأسعار غير مضافة حتى يتم تأكيدها.",
       },
       heroImage: img(officialImage.dessertHero, "Crepello dessert menu", "منيو حلويات كريبيلو"),
-      sourceNote: { en: "Source: official /menu-drinks-1 page.", ar: "المصدر: صفحة /menu-drinks-1 الرسمية." },
+      sourceNote: { en: "Source: official /menu/desserts page.", ar: "المصدر: صفحة /menu/desserts الرسمية." },
       groups: [
         {
           id: "crepe",
@@ -411,7 +437,7 @@ export const defaultSiteContent: SiteContent = {
     },
     {
       id: "bakery",
-      slug: "/menu-drinks-1-1",
+      slug: "/menu/bakery",
       navLabel: { en: "Bakery", ar: "مخبوزات" },
       title: { en: "Bakery", ar: "المخبوزات" },
       intro: {
@@ -419,7 +445,7 @@ export const defaultSiteContent: SiteContent = {
         ar: "أسماء المخبوزات والحلويات كما ظهرت في صفحة المنيو الرسمية. الأسعار غير مضافة حتى يتم تأكيدها.",
       },
       heroImage: img(officialImage.bakeryHero, "Crepello bakery menu", "منيو مخبوزات كريبيلو"),
-      sourceNote: { en: "Source: official /menu-drinks-1-1 page.", ar: "المصدر: صفحة /menu-drinks-1-1 الرسمية." },
+      sourceNote: { en: "Source: official /menu/bakery page.", ar: "المصدر: صفحة /menu/bakery الرسمية." },
       groups: [
         {
           id: "croissants",
@@ -457,7 +483,7 @@ export const defaultSiteContent: SiteContent = {
     },
     {
       id: "brunch",
-      slug: "/menu-drinks-1-1-1",
+      slug: "/menu/brunch",
       navLabel: { en: "Brunch", ar: "برنش" },
       title: { en: "Brunch", ar: "البرنش" },
       intro: {
@@ -465,7 +491,7 @@ export const defaultSiteContent: SiteContent = {
         ar: "أسماء البرنش الرسمية كما ظهرت في صفحة المنيو. الأسعار غير مضافة حتى يتم تأكيدها.",
       },
       heroImage: img(officialImage.savoryHero, "Crepello brunch menu", "منيو برنش كريبيلو"),
-      sourceNote: { en: "Source: official /menu-drinks-1-1-1 page.", ar: "المصدر: صفحة /menu-drinks-1-1-1 الرسمية." },
+      sourceNote: { en: "Source: official /menu/brunch page.", ar: "المصدر: صفحة /menu/brunch الرسمية." },
       groups: [
         {
           id: "croissants",
@@ -497,10 +523,10 @@ export const defaultSiteContent: SiteContent = {
             item("grilled-cheesy", "Grilled Cheesy", "جريلد تشيزي"),
             item("quesadilla", "Quesadilla", "كاساديا"),
             item("skillet", "Skillet", "سكيلت"),
-            item("margreta-pizza", "Margreta Pizza", "مارغريتا بيتزا"),
+            item("margherita-pizza", "Margherita Pizza", "مارغريتا بيتزا"),
             item("pepperoni-pizza", "Pepperoni Pizza", "بيبروني بيتزا"),
             item("veggie-pizza", "Veggie Pizza", "فيجي بيتزا"),
-            item("truffel-pizza", "Truffel Pizza", "ترافل بيتزا"),
+            item("truffle-pizza", "Truffle Pizza", "ترافل بيتزا"),
             item("bbq-pizza", "BBQ Pizza", "باربكيو بيتزا"),
           ],
         },
@@ -510,19 +536,19 @@ export const defaultSiteContent: SiteContent = {
   cart: {
     title: { en: "Cart & Ordering", ar: "السلة والطلبات" },
     body: {
-      en: "Online ordering is marked TODO until Crepello confirms whether orders should be handled internally or linked to a delivery partner.",
-      ar: "نظام الطلبات الإلكتروني معلّم TODO حتى يتم تأكيد ما إذا كانت الطلبات ستدار داخليًا أو عبر شريك توصيل.",
+      en: "Select your favorite items from our menu and send your order directly to our team via WhatsApp.",
+      ar: "اختر أصنافك المفضلة من المنيو وأرسل طلبك مباشرة إلى فريقنا عبر الواتساب.",
     },
-    ctaLabel: { en: "Contact Crepello", ar: "تواصل مع كريبيلو" },
-    ctaHref: "mailto:franchise@crepello.co",
+    ctaLabel: { en: "Browse Menu", ar: "تصفح المنيو" },
+    ctaHref: "/menu/drinks",
   },
   contact: {
-    email: "franchise@crepello.co",
+    email: "info@crepello.co",
     mainPhone: "+962 7 9836 0007",
-    deliveryPhone: "07 9836 0008",
+    deliveryPhone: "+962 7 9836 0008",
     phoneNote: {
-      en: "Phone numbers from the source brief still need official confirmation before launch.",
-      ar: "أرقام الهاتف المذكورة بحاجة لتأكيد رسمي قبل الإطلاق.",
+      en: "For reservations, orders, and inquiries, please reach out to our active branch phone lines.",
+      ar: "للحجوزات والطلبات والاستفسارات، يرجى التواصل عبر أرقام هواتف فروعنا الفعالة.",
     },
   },
   socials: [

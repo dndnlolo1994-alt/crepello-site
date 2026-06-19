@@ -1,0 +1,78 @@
+/* Crepello — base resets & element defaults (kept minimal). */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-body);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, svg, video { display: block; max-width: 100%; }
+
+/* Headings — display serif, RELAXED tracking, wrap nicely */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+  /* GUARD: never collapse the spaces between words */
+  white-space: normal;
+  word-spacing: normal;
+}
+h1 { font-size: var(--text-3xl); line-height: var(--lh-tight); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p { text-wrap: pretty; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Eyebrow / mono label utility */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: var(--fw-regular);
+}
+
+/* Prose measure */
+.prose { max-width: var(--measure); line-height: var(--lh-relaxed); color: var(--text-body); }
+.prose-narrow { max-width: var(--measure-narrow); }
+
+/* Visible, AA focus on dark */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+/* Scroll-reveal primitive — reveals ONCE, respects reduced-motion.
+   Add data-reveal to an element and toggle [data-revealed] via IntersectionObserver. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--reveal-y));
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+[data-reveal][data-revealed] { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}

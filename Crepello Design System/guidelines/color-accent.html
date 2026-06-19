@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Caramel Accent" subtitle="Toasted-caramel / espresso-cream — the single accent" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg-base); padding: 24px; }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { border-radius: var(--radius-md); padding: 14px; height: 96px; display:flex; flex-direction:column; justify-content:flex-end; }
+  .name { font-family: var(--font-body); font-size: 12px; font-weight: 600; }
+  .hex { font-family: var(--font-mono); font-size: 11px; margin-top: 2px; opacity:.75; }
+  .dark { color: var(--espresso-1000); }
+  .light { color: var(--cream-50); }
+  .use { margin-top: 14px; display:flex; gap:12px; align-items:center; }
+  .pill { background: var(--accent); color: var(--on-accent); font-family: var(--font-body); font-weight:600; font-size:13px; padding:8px 18px; border-radius: var(--radius-pill); }
+  .num { font-family: var(--font-mono); color: var(--accent); font-size: 28px; }
+  .lnk { font-family: var(--font-body); color: var(--accent-soft); font-size:13px; border-bottom:1px solid var(--border-accent); padding-bottom:2px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw" style="background:var(--caramel-300)"><span class="name dark">soft 300</span><span class="hex dark">#E7C9A4</span></div>
+    <div class="sw" style="background:var(--caramel-400)"><span class="name dark">400</span><span class="hex dark">#D7A86A</span></div>
+    <div class="sw" style="background:var(--caramel-500)"><span class="name dark">500 · accent</span><span class="hex dark">#C68A4E</span></div>
+    <div class="sw" style="background:var(--caramel-600)"><span class="name light">press 600</span><span class="hex light">#A86F38</span></div>
+    <div class="sw" style="background:var(--caramel-700)"><span class="name light">700</span><span class="hex light">#7C4F25</span></div>
+  </div>
+  <div class="use">
+    <span class="num">01</span>
+    <span class="pill">Order</span>
+    <span class="lnk">View the menu</span>
+  </div>
+</body></html>

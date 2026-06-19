@@ -1,0 +1,39 @@
+/* Crepello — Spacing tokens. 8px base scale + a 4px half-step.
+   Generous section padding for the editorial / atelier rhythm. */
+:root {
+  /* ---- Base 8px scale ---- */
+  --space-0:   0;
+  --space-1:   0.25rem;  /* 4  */
+  --space-2:   0.5rem;   /* 8  */
+  --space-3:   0.75rem;  /* 12 */
+  --space-4:   1rem;     /* 16 */
+  --space-5:   1.5rem;   /* 24 */
+  --space-6:   2rem;     /* 32 */
+  --space-7:   2.5rem;   /* 40 */
+  --space-8:   3rem;     /* 48 */
+  --space-9:   4rem;     /* 64 */
+  --space-10:  5rem;     /* 80 */
+  --space-11:  6rem;     /* 96 */
+  --space-12:  8rem;     /* 128 */
+  --space-13:  10rem;    /* 160 */
+
+  /* ---- Semantic spacing ---- */
+  --gap-inline:   var(--space-2);   /* between inline chips/icons */
+  --gap-tight:    var(--space-3);
+  --gap-default:  var(--space-5);
+  --gap-loose:    var(--space-7);
+
+  /* Section vertical padding — fluid, generous */
+  --section-y:    clamp(4rem, 2.5rem + 6.4vw, 9rem); /* @kind spacing */   /* 64 → 144 */
+  --section-y-sm: clamp(3rem, 2rem + 4.2vw, 6rem); /* @kind spacing */     /* 48 → 96  */
+
+  /* Page gutters / content frame */
+  --gutter:       clamp(1.25rem, 0.6rem + 2.8vw, 3.5rem); /* @kind spacing */
+  --content-max:  1280px; /* @kind spacing */
+  --content-wide: 1480px; /* @kind spacing */
+  --content-prose: 68ch; /* @kind spacing */
+
+  /* Component internal padding */
+  --pad-card:     clamp(1.5rem, 1.1rem + 1.7vw, 2.5rem);
+  --pad-control:  0.75rem 1.25rem;
+}

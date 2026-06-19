@@ -1,0 +1,17 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Radius, Borders & Shadow" subtitle="Tight architectural radii; deep warm shadows" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg-base); padding: 26px; display:flex; gap: 20px; align-items:center; }
+  .box { width: 92px; height: 92px; background: var(--surface-card); border: 1px solid var(--border-default); display:flex; align-items:flex-end; padding: 8px; font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); }
+  .shadow { box-shadow: var(--shadow-lg); border-color: var(--border-subtle); }
+  .glow { box-shadow: var(--shadow-accent); border-color: var(--border-accent); }
+</style></head>
+<body>
+  <div class="box" style="border-radius:var(--radius-sm)">sm · 4</div>
+  <div class="box" style="border-radius:var(--radius-md)">md · 8</div>
+  <div class="box" style="border-radius:var(--radius-lg)">lg · 14</div>
+  <div class="box shadow" style="border-radius:var(--radius-md)">shadow-lg</div>
+  <div class="box glow" style="border-radius:var(--radius-md)">accent glow</div>
+</body></html>

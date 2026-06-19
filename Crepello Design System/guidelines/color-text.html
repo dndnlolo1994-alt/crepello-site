@@ -1,0 +1,20 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Text Neutrals (Sand)" subtitle="Warm-tinted grays — AA-checked text on dark" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg-base); padding: 24px; }
+  .stack { display:flex; flex-direction:column; gap: 10px; }
+  .line { display:flex; align-items:baseline; gap: 16px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; border:1px solid var(--border-subtle); flex:none; align-self:center; }
+  .txt { font-family: var(--font-body); font-size: 17px; }
+  .meta { margin-left:auto; font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); }
+</style></head>
+<body>
+  <div class="stack">
+    <div class="line"><span class="dot" style="background:var(--sand-100)"></span><span class="txt" style="color:var(--sand-100)">strong — headlines & key copy</span><span class="meta">--text-strong · #F6F1E8</span></div>
+    <div class="line"><span class="dot" style="background:var(--sand-200)"></span><span class="txt" style="color:var(--sand-200)">body — paragraph text</span><span class="meta">--text-body · #E7DECF</span></div>
+    <div class="line"><span class="dot" style="background:var(--sand-300)"></span><span class="txt" style="color:var(--sand-300)">muted — secondary text</span><span class="meta">--text-muted · #C9BFAE</span></div>
+    <div class="line"><span class="dot" style="background:var(--sand-400)"></span><span class="txt" style="color:var(--sand-400)">faint — captions & meta</span><span class="meta">--text-faint · #9A9183</span></div>
+  </div>
+</body></html>

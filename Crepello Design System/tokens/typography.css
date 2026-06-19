@@ -1,0 +1,56 @@
+/* Crepello — Typography tokens
+   Editorial serif display + clean grotesk body. Fluid clamp scale.
+   Display headings get RELAXED letter-spacing (the old build cramped them). */
+:root {
+  /* ---- Families ---- */
+  --font-display: 'Bodoni Moda', 'Times New Roman', serif;       /* editorial headlines */
+  --font-body:    'Hanken Grotesk', system-ui, sans-serif;       /* body & UI */
+  --font-mono:    'Space Mono', ui-monospace, monospace;         /* numbered labels, eyebrows */
+  --font-ar-display: 'Amiri', 'Bodoni Moda', serif;              /* Arabic headlines */
+  --font-ar-body:    'IBM Plex Sans Arabic', 'Hanken Grotesk', sans-serif;
+
+  /* ---- Fluid type scale (clamp font sizes, not font families) ---- */
+  --text-2xs:  0.6875rem; /* @kind spacing */
+  --text-xs:   0.75rem; /* @kind spacing */
+  --text-sm:   0.875rem; /* @kind spacing */
+  --text-base: 1rem; /* @kind spacing */
+  --text-md:   clamp(1.0625rem, 0.99rem + 0.31vw, 1.1875rem); /* @kind spacing */
+  --text-lg:   clamp(1.25rem, 1.13rem + 0.50vw, 1.5rem); /* @kind spacing */
+  --text-xl:   clamp(1.5rem, 1.30rem + 0.85vw, 2rem); /* @kind spacing */
+  --text-2xl:  clamp(1.95rem, 1.55rem + 1.7vw, 2.85rem); /* @kind spacing */
+  --text-3xl:  clamp(2.6rem, 1.85rem + 3.2vw, 4.25rem); /* @kind spacing */
+  --text-4xl:  clamp(3.3rem, 1.95rem + 5.75vw, 6rem); /* @kind spacing */
+  --text-5xl:  clamp(4rem, 1.7rem + 9.8vw, 8.5rem); /* @kind spacing */
+
+  /* ---- Weights ---- */
+  --fw-light:    300; /* @kind font */
+  --fw-regular:  400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+
+  /* ---- Line heights ---- */
+  --lh-tight:   1.04; /* @kind other */
+  --lh-snug:    1.16; /* @kind other */
+  --lh-normal:  1.5; /* @kind other */
+  --lh-relaxed: 1.65; /* @kind other */
+
+  /* ---- Letter spacing (display gets AIR, not crunch) ---- */
+  --ls-display: -0.005em; /* @kind spacing */ /* near-neutral — NEVER tightly negative */
+  --ls-heading: 0.005em; /* @kind spacing */
+  --ls-body:    0.005em; /* @kind spacing */
+  --ls-eyebrow: 0.26em; /* @kind spacing */
+  --ls-caps:    0.14em; /* @kind spacing */
+
+  /* ---- Measure (line length) ---- */
+  --measure: 65ch; /* @kind spacing */
+  --measure-narrow: 46ch; /* @kind spacing */
+
+  /* ---- Composite role tokens ---- */
+  --eyebrow:   var(--fw-regular) var(--text-xs)/1.2 var(--font-mono); /* @kind font */
+}
+
+/* Body default + RTL family swap */
+html { font-family: var(--font-body); }
+[dir="rtl"] { font-family: var(--font-ar-body); }
+[dir="rtl"] :is(h1, h2, h3, .display) { font-family: var(--font-ar-display); }

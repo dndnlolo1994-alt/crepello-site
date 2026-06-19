@@ -1,0 +1,51 @@
+/* Crepello — Effects: radius, borders, shadows, blur, motion.
+   Restrained. Small radii (atelier, not bubbly). Shadows are deep + warm-tinted. */
+:root {
+  /* ---- Radius (tight / architectural) ---- */
+  --radius-0:  0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;     /* default card / control */
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* ---- Border widths ---- */
+  --bw-hair: 1px; /* @kind spacing */
+  --bw-1:    1px; /* @kind spacing */
+  --bw-2:    2px; /* @kind spacing */
+
+  /* ---- Shadows (deep, warm-black; used sparingly on dark) ---- */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.45);
+  --shadow-md: 0 12px 30px -12px rgba(0,0,0,0.7);
+  --shadow-lg: 0 28px 60px -20px rgba(0,0,0,0.78);
+  --shadow-accent: 0 18px 50px -20px rgba(124,79,37,0.55); /* warm caramel glow */
+  --shadow-inset-hair: inset 0 0 0 1px var(--border-subtle);
+
+  /* ---- Blur (glass nav / scrims) ---- */
+  --blur-sm: 6px; /* @kind spacing */
+  --blur-md: 14px; /* @kind spacing */
+  --blur-lg: 24px; /* @kind spacing */
+
+  /* ---- Image treatment ---- */
+  --img-overlay: linear-gradient(180deg, rgba(5,5,5,0.10) 0%, rgba(5,5,5,0.55) 55%, rgba(5,5,5,0.92) 100%); /* @kind other */
+  --img-duotone: linear-gradient(150deg, rgba(124,79,37,0.28), rgba(5,5,5,0.55)); /* @kind other */
+
+  /* ---- Motion (calm, editorial; no bounce) ---- */
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast:   160ms; /* @kind other */
+  --dur-med:    320ms; /* @kind other */
+  --dur-slow:   620ms; /* @kind other */
+  --reveal-y:   24px; /* @kind spacing */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms; /* @kind other */
+    --dur-med: 1ms; /* @kind other */
+    --dur-slow: 1ms; /* @kind other */
+    --reveal-y: 0px; /* @kind spacing */
+  }
+}

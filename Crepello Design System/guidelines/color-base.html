@@ -1,0 +1,20 @@
+<!-- @dsCard group="Colors" viewport="700x200" name="Base & Surfaces" subtitle="Near-black espresso canvas + raised dark surfaces" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg-base); padding: 24px; }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { border-radius: var(--radius-md); border: 1px solid var(--border-subtle); padding: 14px; height: 116px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .name { font-family: var(--font-body); font-size: 12px; color: var(--text-strong); font-weight: 600; }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw" style="background:var(--bg-base)"><span class="name">base</span><span class="hex">#050505</span></div>
+    <div class="sw" style="background:var(--bg-sunken)"><span class="name">sunken</span><span class="hex">#0B0A09</span></div>
+    <div class="sw" style="background:var(--surface)"><span class="name">surface</span><span class="hex">#121110</span></div>
+    <div class="sw" style="background:var(--surface-raised)"><span class="name">raised</span><span class="hex">#191715</span></div>
+    <div class="sw" style="background:var(--surface-card)"><span class="name">card</span><span class="hex">#211E1B</span></div>
+  </div>
+</body></html>

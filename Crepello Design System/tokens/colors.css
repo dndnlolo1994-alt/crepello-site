@@ -1,0 +1,81 @@
+/* Crepello — Color tokens
+   "Atelier" dark luxury: near-black espresso base, warm toasted-caramel accent,
+   warm-tinted neutral grays, cream high-contrast text. AA-checked on dark. */
+:root {
+  /* ---- Base raw scale: Espresso / Ink (warm-cool near-black to cream) ---- */
+  --espresso-1000: #050505; /* page base */
+  --espresso-950:  #0B0A09; /* sunken */
+  --espresso-900:  #121110; /* surface */
+  --espresso-850:  #191715; /* surface raised */
+  --espresso-800:  #211E1B; /* elevated card */
+  --espresso-700:  #2C2823; /* hairline / border strong */
+  --espresso-600:  #3A352F; /* border on raised */
+  --espresso-500:  #57504732; /* (alpha) subtle divider — see alias below */
+
+  /* ---- Warm neutral grays (sand-tinted, for text) ---- */
+  --sand-100: #F6F1E8; /* highest-contrast text on dark — "cream" */
+  --sand-200: #E7DECF; /* primary text */
+  --sand-300: #C9BFAE; /* secondary text */
+  --sand-400: #9A9183; /* muted text / captions */
+  --sand-500: #6E665C; /* disabled / faint */
+  --sand-600: #4A443C; /* very faint, decorative */
+
+  /* ---- Accent: Toasted Caramel / Espresso-cream ---- */
+  --caramel-300: #E7C9A4; /* light caramel — hover text, highlights */
+  --caramel-400: #D7A86A; /* caramel tint */
+  --caramel-500: #C68A4E; /* PRIMARY accent (toasted caramel) */
+  --caramel-600: #A86F38; /* deep caramel — pressed */
+  --caramel-700: #7C4F25; /* espresso-amber — borders/shadow tint */
+
+  /* ---- Cream (warm off-white surfaces, rare light blocks) ---- */
+  --cream-50:  #FBF7EF;
+  --cream-100: #F3EADB;
+
+  /* ---- Support (used sparingly, kept warm) ---- */
+  --berry-500: #B5485B; /* dessert / error-ish, warm berry */
+  --olive-500: #6E7350; /* savory / success-ish, muted olive */
+
+  /* ====================================================================
+     SEMANTIC ALIASES — reference these in components, not the raw scale
+     ==================================================================== */
+
+  /* Surfaces */
+  --bg-base:        var(--espresso-1000);
+  --bg-sunken:      var(--espresso-950);
+  --surface:        var(--espresso-900);
+  --surface-raised: var(--espresso-850);
+  --surface-card:   var(--espresso-800);
+  --surface-cream:  var(--cream-50);
+
+  /* Text on dark */
+  --text-strong:  var(--sand-100);
+  --text-body:    var(--sand-200);
+  --text-muted:   var(--sand-300);
+  --text-faint:   var(--sand-400);
+  --text-disabled:var(--sand-500);
+  --text-on-cream:var(--espresso-1000);
+
+  /* Accent roles */
+  --accent:         var(--caramel-500);
+  --accent-hover:   var(--caramel-400);
+  --accent-press:   var(--caramel-600);
+  --accent-soft:    var(--caramel-300);
+  --on-accent:      var(--espresso-1000); /* text on a caramel fill */
+
+  /* Lines & borders */
+  --border-subtle:  rgba(231, 222, 207, 0.08);
+  --border-default: rgba(231, 222, 207, 0.14);
+  --border-strong:  rgba(231, 222, 207, 0.24);
+  --border-accent:  rgba(198, 138, 78, 0.55);
+
+  /* Focus ring (AA visible on dark) */
+  --focus-ring: var(--caramel-300);
+
+  /* Overlays / scrims */
+  --scrim:        rgba(5, 5, 5, 0.62);
+  --scrim-strong: rgba(5, 5, 5, 0.82);
+
+  /* Semantic status */
+  --danger:  var(--berry-500);
+  --success: var(--olive-500);
+}
