@@ -155,7 +155,7 @@ function Word({ children, progress, range }: { children: React.ReactNode; progre
 }
 
 function RevealHeading({ text, className, delay = 0 }: { text: string; className?: string; delay?: number }) {
-  const words = text.split(" ");
+  const words = text.trim().split(/\s+/);
   
   const containerVariants = {
     hidden: {},
@@ -188,6 +188,7 @@ function RevealHeading({ text, className, delay = 0 }: { text: string; className
           <motion.span variants={wordVariants} className="inline-block">
             {word}
           </motion.span>
+          {i < words.length - 1 ? " " : null}
         </span>
       ))}
     </motion.h2>
@@ -427,7 +428,7 @@ function SiteChrome({
               height: cursorHovered ? (cursorHovered === 'explore' || cursorHovered === 'view' ? 80 : 50) : 36,
               backgroundColor: cursorHovered ? "rgba(197, 168, 128, 0.12)" : "rgba(197, 168, 128, 0)",
               borderColor: cursorHovered ? "var(--gold)" : "rgba(198, 138, 78, 0.35)",
-              color: cursorHovered ? "var(--gold)" : "transparent",
+              color: cursorHovered ? "rgb(197, 168, 128)" : "rgba(197, 168, 128, 0)",
             }}
             transition={{ type: "spring", stiffness: 250, damping: 22 }}
           >
@@ -568,7 +569,7 @@ function HomeView({ content, language }: { content: SiteContent; language: Local
           transition={{ duration: 18, ease: "easeOut" }}
           style={{ y: y1 }}
         >
-          <Image src={content.home.hero.image.src} alt={text(content.home.hero.image.alt, language)} fill className="object-cover opacity-60" priority sizes="100vw" />
+          <Image src={content.home.hero.image.src} alt={text(content.home.hero.image.alt, language)} fill className="object-cover opacity-60" priority loading="eager" sizes="100vw" />
           <div className="absolute inset-0 bg-[var(--img-overlay)]" />
           <div className="absolute inset-0 bg-[var(--img-duotone)] mix-blend-multiply" />
         </motion.div>
@@ -685,11 +686,13 @@ function HomeView({ content, language }: { content: SiteContent; language: Local
                     "col-span-12 md:col-span-7 h-[340px]"
                   )}
                 >
-                  <Link href={localizedHref(category.slug)} className="block w-full h-full">
+                  <Link href={localizedHref(category.slug)} className="relative block w-full h-full">
                     <Image 
                       src={category.heroImage.src} 
                       alt={text(category.heroImage.alt, language)} 
                       fill 
+                      loading={index === 0 ? "eager" : "lazy"}
+                      sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-cover opacity-65 group-hover:opacity-45 transition-all duration-1000 group-hover:scale-105 ease-out" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
@@ -770,7 +773,7 @@ function StoryBand({ section, language, reversed }: { section: HomeSection; lang
           <div className="flex-1 w-full">
             <div className="relative aspect-[4/5] w-full rounded-[var(--radius-md)] overflow-hidden border border-[var(--line)] bg-[var(--surface)] shadow-2xl">
               <motion.div style={{ y: yImage, scale: 1.12 }} className="absolute inset-0 w-full h-full">
-                <Image src={section.image.src} alt={text(section.image.alt, language)} fill className="object-cover" />
+                <Image src={section.image.src} alt={text(section.image.alt, language)} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
             </div>
@@ -1068,7 +1071,7 @@ function MenuView({ content, language, menuId, addToCart }: MenuViewProps) {
             }}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
-            <Image src={hoveredImage} alt="Preview" fill className="object-cover" />
+            <Image src={hoveredImage} alt="Preview" fill sizes="130px" className="object-cover" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -1165,6 +1168,7 @@ function MenuView({ content, language, menuId, addToCart }: MenuViewProps) {
                                 src={getItemImageSrc(item, group)} 
                                 alt={item.image ? text(item.image.alt, language) : text(item.name, language)} 
                                 fill 
+                                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                                 className="object-cover opacity-75 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000 ease-out" 
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -1634,7 +1638,7 @@ function PageHero({ image, kicker, title, intro, language }: { image: ImageAsset
         style={{ y: yHero }}
         className="absolute inset-0 z-0"
       >
-        <Image src={image.src} alt={text(image.alt, language)} fill priority sizes="100vw" className="object-cover opacity-45" />
+        <Image src={image.src} alt={text(image.alt, language)} fill priority loading="eager" sizes="100vw" className="object-cover opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/75 to-transparent" />
       </motion.div>
       

@@ -582,6 +582,36 @@ button, input, textarea, select {
   }
 }
 
+@media (max-width: 520px) {
+  .site-header-inner {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    gap: 10px;
+    font-size: 1.15rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-tools {
+    gap: 12px;
+  }
+
+  .header-order-link {
+    display: none;
+  }
+
+  .lang-toggle button {
+    padding: 0 2px;
+    font-size: 0.68rem;
+  }
+}
+
 /* ----------------------------------------------------
    Admin Panel Styles
    ---------------------------------------------------- */
