@@ -9,6 +9,10 @@ export function getAdminPassword(): string {
   return process.env.CREPELLO_ADMIN_PASSWORD ?? "crepello-admin";
 }
 
+export function getAdminUsername(): string {
+  return process.env.CREPELLO_ADMIN_USERNAME ?? "admin";
+}
+
 function getSessionSecret(): string {
   return process.env.CREPELLO_SESSION_SECRET ?? "local-crepello-session-secret";
 }

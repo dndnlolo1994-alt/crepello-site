@@ -935,7 +935,7 @@ function BranchesView({ content, language }: { content: SiteContent; language: L
                   {branch.phone && (
                     <div className="flex items-center gap-3 text-xs text-[var(--ink)]">
                       <Phone size={14} className="text-[var(--muted)]" />
-                      <span className="font-light">{branch.phone}</span>
+                      <span className="phone-ltr font-light">{branch.phone}</span>
                     </div>
                   )}
                   
@@ -1514,7 +1514,7 @@ function ContactView({ content, language }: { content: SiteContent; language: Lo
                 </p>
                 <p className="flex items-center gap-3 text-white">
                   <Phone size={16} className="text-[var(--gold)]" />
-                  <span>{content.contact.mainPhone}</span>
+                  <span className="phone-ltr">{content.contact.mainPhone}</span>
                 </p>
               </div>
             </div>
@@ -1697,7 +1697,7 @@ function Footer({
                 <Mail size={14} /> {content.contact.email}
               </a>
             </Magnetic>
-            <span className="flex items-center gap-2"><Phone size={14} /> {content.contact.mainPhone}</span>
+            <span className="flex items-center gap-2"><Phone size={14} /> <span className="phone-ltr">{content.contact.mainPhone}</span></span>
           </div>
         </div>
         <div>

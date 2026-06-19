@@ -1,16 +1,17 @@
 import { NextResponse } from "next/server";
 
-import { adminCookie, createSessionToken, getAdminPassword } from "@/lib/auth";
+import { adminCookie, createSessionToken, getAdminPassword, getAdminUsername } from "@/lib/auth";
 
 type LoginPayload = {
+  username?: string;
   password?: string;
 };
 
 export async function POST(request: Request) {
   const payload = (await request.json().catch(() => ({}))) as LoginPayload;
 
-  if (payload.password !== getAdminPassword()) {
-    return NextResponse.json({ ok: false, message: "Invalid password" }, { status: 401 });
+  if (payload.username !== getAdminUsername() || payload.password !== getAdminPassword()) {
+    return NextResponse.json({ ok: false, message: "Invalid credentials" }, { status: 401 });
   }
 
   const response = NextResponse.json({ ok: true });

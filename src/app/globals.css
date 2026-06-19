@@ -351,6 +351,13 @@ button, input, textarea, select {
   border-color: var(--gold);
 }
 
+.phone-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  text-align: left;
+}
+
 /* Sections */
 .section {
   padding: var(--section-y) var(--gutter);

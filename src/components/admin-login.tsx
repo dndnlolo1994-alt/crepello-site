@@ -7,6 +7,7 @@ import type { Locale, SiteContent } from "@/lib/types";
 
 export function AdminLogin({ content }: { content: SiteContent }) {
   const [language, setLanguage] = useState<Locale>("en");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ export function AdminLogin({ content }: { content: SiteContent }) {
     const response = await fetch("/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
+      body: JSON.stringify({ username, password }),
     });
 
     if (response.ok) {
@@ -27,7 +28,7 @@ export function AdminLogin({ content }: { content: SiteContent }) {
       return;
     }
 
-    setStatus(language === "ar" ? "كلمة المرور غير صحيحة." : "Invalid password.");
+    setStatus(language === "ar" ? "بيانات الدخول غير صحيحة." : "Invalid credentials.");
     setLoading(false);
   }
 
@@ -51,6 +52,16 @@ export function AdminLogin({ content }: { content: SiteContent }) {
           </div>
 
           <form onSubmit={handleSubmit}>
+            <label className="form-field">
+              <span>{language === "ar" ? "اسم المستخدم" : "Username"}</span>
+              <input
+                autoComplete="username"
+                onChange={(event) => setUsername(event.target.value)}
+                required
+                type="text"
+                value={username}
+              />
+            </label>
             <label className="form-field">
               <span>{language === "ar" ? "كلمة المرور" : "Password"}</span>
               <input
